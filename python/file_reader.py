@@ -1,5 +1,5 @@
 import os
-import facial_recognition
+import face_recognition
 global image_list
 
 class File_Reader:

@@ -1,12 +1,12 @@
 # Class for performing facial recognition functions
 # take in a numpy array of images to analyze
 
-import facial_recognition
-import KHaos
+import face_recognition
+#import KHaos
 
 class Face_Recognition:
-    face_encodings
-    KH = khaos
+#    face_encodings
+#    KH = khaos
 
     def train_classifier(training_dir):
        train 
