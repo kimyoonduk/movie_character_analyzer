@@ -1,0 +1,29 @@
+Swap's advice
+
+Datastructure 
+use dataframe array or lists?
+
+Interesting graph algorithms
+-> strongly connected components (clusters of communities)
+
+Graph theory and social networks
+graph partitioning algorithm
+six degrees of separation
+
+Variance
+Fourier transform
+Cosine similarity between movies
+
+Networks crowds and markets (textbook) + CLRS
+graph partitioning 
+application to real world
+neighborhood overlap
+clustering coefficient
+
+
+Discussion April 26
+
+Training on multiple images for a single person: possible on face_recognition? How accurate?
+TODO: test compare similar faces and check for false positives. If good enough, use. If more false negatives, use more encodings.
+opencv read frames from video: faster to loop entire frame OR skip to nth frame?
+
