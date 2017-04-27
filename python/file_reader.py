@@ -38,13 +38,17 @@ class FileReader:
 
     # TODO: create function for reading the dir where the .png files are created
     def frame_to_numpy_list(self, dir_path):
-        for img in os.listdir('\'' + dir_path + '\''):
-            if (os.path.isfile(img)):
-                image = face_recognition.load_image_file(img)
-                frame_face_locations = face_recognition.face_locations(image)
+        # TODO os.listdir accesses files in random order ***Solved*** 
+        for img in sorted(sorted(os.listdir(dir_path)), key=len):
+            img_path = dir_path + img
+            if (os.path.isfile(img_path)):
+                print(img)
+               ## image = face_recognition.load_image_file(img_path)
+                # print("image: " + image)
+               ## frame_face_locations = face_recognition.face_locations(image)
                 # add the face location to the list 
-                self.face_locations.append(frame_face_locations)
-        return self.face_locations
+               ## self.face_locations.append(frame_face_locations)
+       ## return self.face_locations
 
 
 
