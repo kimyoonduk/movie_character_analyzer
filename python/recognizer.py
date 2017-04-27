@@ -2,32 +2,42 @@
 # take in a numpy array of images to analyze
 
 import face_recognition
-#import KHaos
+import khaos
 
 class Recognizer: 
 
     def __init__(self):
-        self.known_face_encodings = []        # should become the trained face encodings
-        #self.khaos = khaos()           # khaos class
+        # TODO: Decide if it should be a dictionary of <actor_name : encoding>
+        self.known_face_encodings = { } # should become the trained face encodings
+        self.khaos = khaos.Khaos()           
 
-    def train_classifier(self, training_dir):
+    def train_classifier(self, training_list):
         # training steps 
         # currently placeholder
         # TODO: find out how training actually works
-       for img in os.listdir(trainingdir):
+        # TODO: is one training image enough?
+       for img in image_list:
            encoding = face_recognition.face_encodings(img)
            self.face_encodings.append(encoding)        
 
     def find_and_recognize(self, face_locations):
-        map = { }    # frame : list of actors
-        for frame in face_locations:
-            unknown_faces = face_recognition.encodings(face_locations)
+        actor_map = { }    # frame : list of actors
+        for index, faces_in_frame in enumerate(face_locations):
+            # Docs make it seem like I have to pass in an image here?
+            # I am trying to just pass in a numpy arr of face locations
+            unknown_faces = face_recognition.face_encodings(faces_in_frame)
             for face in unknown_faces:
-                for encoding in known_face_encodings:
-                    result = face_recognition.compare_faces(encodings, face) 
+                for actor, encoding in known_face_encodings.items():
+                    result = face_recognition.compare_faces(encoding, face) 
+                    frame = index * 10;
                     if result:
-                        # TODO: put the correct character and frame into map
-                        # TODO: find [] index and multiply by 10 for frame num 
-                        # TODO: How to find out which character it is?
-                        break
-        return table
+                        # TODO: is this correct way to check if list contains actor and create new one?
+                        if actor_map.get(frame, default=None) != None:
+                            actor_map.get(frame).append(actor)
+                        else:
+                            actors = [actor]
+                            actor_map[frame] = actors
+                    break
+        self.khaos.create_actor_map(actor_map)
+        return self.khaos
+

@@ -7,7 +7,7 @@ global image_list
 class FileReader:
 
     def __init__(self):
-        self.face_locations = []
+        self.movie_face_locations = []
         global image_list 
         image_list = []
 
@@ -37,17 +37,28 @@ class FileReader:
 
 
     # TODO: create function for reading the dir where the .png files are created
-    def frame_to_numpy_list(self, dir_path):
+    def frame_to_face_locations(self, dir_path):
         # TODO os.listdir accesses files in random order ***Solved*** 
         for img in sorted(sorted(os.listdir(dir_path)), key=len):
             img_path = dir_path + img
             if (os.path.isfile(img_path)):
                 print(img)
-               ## image = face_recognition.load_image_file(img_path)
-               ## frame_face_locations = face_recognition.face_locations(image)
+                image = face_recognition.load_image_file(img_path)
+                frame_face_locations = face_recognition.face_locations(image)
                 # add the face location to the list 
-               ## self.face_locations.append(frame_face_locations)
-       ## return self.face_locations
+                self.movie_face_locations.append(frame_face_locations)
+        return self.movie_face_locations
 
+
+    def train(self, training_dir):
+       encoding_map = { }
+       for img in os.listdir(training_dir):
+           img_path = training_dir + img
+           actor_name = img.split(".")[0].replace("_", " ")
+           face = face_recognition.load_image_file(img_path)
+           # print(actor_name)
+           encoding = face_recognition.face_encodings(face)
+           encoding_map[actor_name] = encoding
+       return encoding_map 
 
 
