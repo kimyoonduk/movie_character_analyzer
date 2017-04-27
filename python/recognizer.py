@@ -5,6 +5,8 @@ import face_recognition
 #import KHaos
 
 class Recognizer: 
+#    face_encodings
+#    KH = khaos
 
     def __init__(self):
         self.face_encodings = []        # should become the trained face encodings

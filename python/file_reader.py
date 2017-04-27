@@ -1,6 +1,7 @@
 import os
 import face_recognition
 import cv2
+
 global image_list
 
 class FileReader:
@@ -46,6 +47,4 @@ class FileReader:
         return self.face_locations
 
 
-#fr = FileReader()
-#fr.video_to_frames("basterds_pub.mp4", "./basterds")
 
