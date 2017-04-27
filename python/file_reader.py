@@ -44,7 +44,6 @@ class FileReader:
             if (os.path.isfile(img_path)):
                 print(img)
                ## image = face_recognition.load_image_file(img_path)
-                # print("image: " + image)
                ## frame_face_locations = face_recognition.face_locations(image)
                 # add the face location to the list 
                ## self.face_locations.append(frame_face_locations)

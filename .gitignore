@@ -1,8 +1,9 @@
 # specific to our project
+tags
 *.mp4
 # *.png
 
-
+*.swp
 
 # Byte-comiled / optimized / DLL files
 __pycache__/
