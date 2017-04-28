@@ -34,7 +34,7 @@ class Recognizer:
             #    break
             for face in unknown_faces:
                 for actor, encoding in self.known_face_encodings.items():
-                    results = face_recognition.compare_faces([encoding], face) 
+                    results = face_recognition.compare_faces([encoding], face, tolerance=0.6) 
                     print(actor)
                     print("results len: " + str(len(results)))
                     print(results)

@@ -80,7 +80,7 @@ facerec = dlib.face_recognition_model_v1(face_rec_model_path)
 win = dlib.image_window()
 
 # Now process all the images
-for f in glob.glob(os.path.join(faces_folder_path, "*.jpg")):
+for f in glob.glob(os.path.join(faces_folder_path, "*.png")):
     print("Processing file: {}".format(f))
     img = io.imread(f)
 
