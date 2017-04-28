@@ -46,7 +46,7 @@ class FileReader:
                 # OR actor : image
                 image_arr = face_recognition.load_image_file(img_path)
                 if mode == 0:
-                    actor_name = img.split(".")[0].replace("_", " ")
+                    actor_name = img.split(".")[0]
                     image_map[actor_name] = image_arr 
                 else: 
                     frame = img.split(".")[0]
@@ -69,7 +69,7 @@ class FileReader:
        encoding_map = { }
        for img in os.listdir(training_dir):
            img_path = training_dir + img
-           actor_name = img.split(".")[0].replace("_", " ")
+           actor_name = img.split(".")[0]
            face = face_recognition.load_image_file(img_path)
            encoding = face_recognition.face_encodings(face)
            encoding_map[actor_name] = encoding

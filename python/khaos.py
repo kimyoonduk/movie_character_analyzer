@@ -11,6 +11,9 @@ class Khaos:
     def calculate_khaos(self):
         return 0
 
+    def set_aos(self, actor, mark, frame):
+        self.aos[actor] = mark 
+
     def get_actors(self):
         return self.actors
 

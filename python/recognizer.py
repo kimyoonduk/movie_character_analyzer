@@ -50,7 +50,6 @@ class Recognizer:
                         print("result was true! found: " + actor)
                         self.khaos.aos[actor][counter] = 1
 
-           
             counter += 1
                 
         return self.khaos
