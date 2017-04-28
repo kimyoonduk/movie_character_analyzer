@@ -16,29 +16,29 @@ class Recognizer:
         # TODO: find out how training actually works
         # TODO: is one training image enough?
        for actor, img in images.items():
-           encoding = face_recognition.face_encodings(img)
+           encoding = face_recognition.face_encodings(img)[0]
            self.known_face_encodings[actor] = encoding
        return self.known_face_encodings
 
 
-    def test(self, images):
+    def find_and_recognize(self, images):
         actor_map = { } # maps frame : list of actors 
         for frame, img in sorted(sorted(images.items()), key=len):
             print(frame)
             # frame_face_locations = face_recognition.face_locations(img)
             # unknown_faces = face_recognition.face_encodings(img, frame_face_locations)
             unknown_faces = face_recognition.face_encodings(img)
+            # TODO: issue is it's not recognizing side faces
             print("unknown_faces len: " + str(len(unknown_faces)))
-            if int(frame) > 1500:
-                break
+            #if int(frame) > 1500:
+            #    break
             for face in unknown_faces:
                 for actor, encoding in self.known_face_encodings.items():
-                    results = face_recognition.compare_faces(encoding, face) 
+                    results = face_recognition.compare_faces([encoding], face) 
                     print(actor)
-                    for r in results:
-                        print(r)
                     print("results len: " + str(len(results)))
-                    if results:
+                    print(results)
+                    if True in results:
                         ## printing results says false but still enters here
                         print("result was true! found: " + actor)
                         if frame not in actor_map:
@@ -53,63 +53,4 @@ class Recognizer:
         self.khaos.create_actor_map(actor_map)
         return self.khaos
 
-    def test1(self, images):
-        actor_map = { } # maps frame : list of actors 
-        for frame, img in sorted(sorted(images.items()), key=len):
-            print(frame)
-            # frame_face_locations = face_recognition.face_locations(img)
-            # unknown_faces = face_recognition.face_encodings(img, frame_face_locations)
-            unknown_faces = face_recognition.face_encodings(img)
-            print("unknown_faces len: " + str(len(unknown_faces)))
-            if int(frame) > 1500:
-                break
-            for face in unknown_faces:
-                for actor in self.known_face_encodings.keys():
-                    encoding = self.known_face_encodings.get(actor)
-                    results = face_recognition.compare_faces(encoding, face) 
-                    print(results)
-                    print("results len: " + str(len(results)))
-                    if results:
-                        print("result was true! found: " + actor)
-                        if frame not in actor_map:
-                            actors = [actor]
-                            actor_map[frame] = actors
-                        else:
-                            print("appending to actor list")
-                            actor_map[frame].append(actor)
-                            print(actor_map[frame])
-                            # actor_map.get(frame) = actor
-                        
-        self.khaos.create_actor_map(actor_map)
-        return self.khaos
-
-    def find_and_recognize(self, images):
-        actor_map = { }    # frame : list of actors
-        print("finding face locations")
-        face_locations = self.find_face_locations(images)
-        print("done finding face locations")
-        for index, faces_in_frame in enumerate(face_locations):
-            print(index)
-            unknown_faces = face_recognition.face_encodings(faces_in_frame)
-            for face in unknown_faces:
-                for actor, encoding in known_face_encodings.items():
-                    result = face_recognition.compare_faces(encoding, face) 
-                    frame = index * 10;
-                    if result:
-                        # todo: is this correct way to check if list contains actor and create new one?
-                        if actor_map.get(frame, default=none) != none:
-                            actor_map.get(frame).append(actor)
-                        else:
-                            actors = [actor]
-                            actor_map[frame] = actors
-                    break
-        self.khaos.create_actor_map(actor_map)
-        return self.khaos
-
-    def find_face_locations(self, images):
-        for img in images.values():
-            frame_face_locations = face_recognition.face_locations(img)
-            # add the face location to the list 
-            self.movie_face_locations.append(frame_face_locations)
-        return self.movie_face_locations
 
