@@ -18,20 +18,27 @@ class Recognizer:
        for actor, img in images.items():
            encoding = face_recognition.face_encodings(img)[0]
            self.known_face_encodings[actor] = encoding
+           self.khaos.actors[actor] = []
+
        return self.known_face_encodings
 
 
     def find_and_recognize(self, images):
         actor_map = { } # maps frame : list of actors 
-        for frame, img in sorted(sorted(images.items()), key=len):
+        counter = 0
+        for frame in sorted(images, key=int):
             print(frame)
             # frame_face_locations = face_recognition.face_locations(img)
             # unknown_faces = face_recognition.face_encodings(img, frame_face_locations)
-            unknown_faces = face_recognition.face_encodings(img)
+            unknown_faces = face_recognition.face_encodings(images[frame])
             # TODO: issue is it's not recognizing side faces
             print("unknown_faces len: " + str(len(unknown_faces)))
             #if int(frame) > 1500:
             #    break
+
+            for actor, aos in self.khaos.actors.items():
+                self.khaos.actors[actor].append(0)
+
             for face in unknown_faces:
                 for actor, encoding in self.known_face_encodings.items():
                     results = face_recognition.compare_faces([encoding], face) 
@@ -41,16 +48,19 @@ class Recognizer:
                     if True in results:
                         ## printing results says false but still enters here
                         print("result was true! found: " + actor)
-                        if frame not in actor_map:
-                            actors = [actor]
-                            actor_map[frame] = actors
-                        else:
-                            print("appending to actor list")
-                            actor_map[frame].append(actor)
-                            print(actor_map[frame])
-                            # actor_map.get(frame) = actor
-                        
-        self.khaos.create_actor_map(actor_map)
+                        self.khaos.actors[actor][counter] = 1
+
+           
+            counter += 1
+                
+
+#        self.khaos.create_actor_map(actor_map)
+        for actor, aos in self.khaos.actors.items():
+            print(actor) 
+            print("---------")
+            print(len(aos))
+            print(aos)
+
         return self.khaos
 
 

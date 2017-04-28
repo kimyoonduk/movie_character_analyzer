@@ -2,7 +2,7 @@
 class Khaos:
     
     def __init__(self):
-        self.actors = []
+        self.actors = { }  
         self.actor_map = { }  # map frame number to list of actors 
 
     # placeholder
