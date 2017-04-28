@@ -3,7 +3,8 @@ import face_recognition
 
 # Load the jpg file into a numpy array
 # image = face_recognition.load_image_file("Chad_Smith.jpg")
-image = face_recognition.load_image_file("spice_girls.jpg")
+# image = face_recognition.load_image_file("spice_girls.jpg")
+image = face_recognition.load_image_file("180.png")
 
 # Find all the faces in the image
 face_locations = face_recognition.face_locations(image)

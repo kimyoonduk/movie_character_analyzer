@@ -3,7 +3,8 @@ import face_recognition
 
 # Load the jpg file into a numpy array
 # image = face_recognition.load_image_file("will_ferrell.jpg")
-image = face_recognition.load_image_file("spice_girls.jpg")
+# image = face_recognition.load_image_file("spice_girls.jpg")
+image = face_recognition.load_image_file("180.png")
 
 # Find all facial features in all the faces in the image
 face_landmarks_list = face_recognition.face_landmarks(image)
