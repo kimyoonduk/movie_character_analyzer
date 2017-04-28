@@ -18,7 +18,7 @@ class Recognizer:
        for actor, img in images.items():
            encoding = face_recognition.face_encodings(img)[0]
            self.known_face_encodings[actor] = encoding
-           self.khaos.actors[actor] = []
+           self.khaos.aos[actor] = []
 
        return self.known_face_encodings
 
@@ -36,8 +36,8 @@ class Recognizer:
             #if int(frame) > 1500:
             #    break
 
-            for actor, aos in self.khaos.actors.items():
-                self.khaos.actors[actor].append(0)
+            for actor, aos in self.khaos.aos.items():
+                self.khaos.aos[actor].append(0)
 
             for face in unknown_faces:
                 for actor, encoding in self.known_face_encodings.items():
@@ -48,19 +48,11 @@ class Recognizer:
                     if True in results:
                         ## printing results says false but still enters here
                         print("result was true! found: " + actor)
-                        self.khaos.actors[actor][counter] = 1
+                        self.khaos.aos[actor][counter] = 1
 
            
             counter += 1
                 
-
-#        self.khaos.create_actor_map(actor_map)
-        for actor, aos in self.khaos.actors.items():
-            print(actor) 
-            print("---------")
-            print(len(aos))
-            print(aos)
-
         return self.khaos
 
 

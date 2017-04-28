@@ -1,24 +1,29 @@
 
+import os
 import pandas as pd
 
 class Khaos:
     
     def __init__(self):
-        self.actors = { }
-        self.actor_map = { }  # map frame number to list of actors 
-        self.dataframe = { }  
+        self.aos = { }
 
     # placeholder
     def calculate_khaos(self):
         return 0
 
-    def create_actor_map(self, mapping):
-        self.actor_map = mapping
-
-    def get_actor_map(self):
-        return self.actor_map
-
     def get_actors(self):
         return self.actors
 
+    def make_dataframe(self):
+        self.df = pd.DataFrame(self.aos)
+        return self.df
+
+    def save_to_csv(self, output_filename):
+        dir_name = "./csv_files"
+        if ".csv" not in output_filename:
+            output_filename += ".csv"
+        try: 
+            self.df.to_csv(os.path.join(dir_name, output_filename))
+        except:
+            print("There is no dataframe. Create one first")
 
