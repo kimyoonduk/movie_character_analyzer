@@ -42,7 +42,4 @@ print("printing known encoding: ")
 print(recog.known_face_encodings)
 movie_images = fr.image_to_array("diane_test/", 1)
 recog.find_and_recognize(movie_images)
-actor_map = recog.khaos.get_actor_map()
-print(actor_map)
-
 
