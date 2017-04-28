@@ -23,7 +23,7 @@ class Recognizer:
 
     def find_and_recognize(self, images):
         actor_map = { } # maps frame : list of actors 
-        for frame, img in sorted(sorted(images.items()), key=len):
+        for frame, img in sorted(sorted(images.items(), key=len)):
             print(frame)
             # frame_face_locations = face_recognition.face_locations(img)
             # unknown_faces = face_recognition.face_encodings(img, frame_face_locations)
