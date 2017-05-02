@@ -11,11 +11,14 @@ class Khaos:
     def calculate_khaos(self):
         return 0
 
-    def set_aos(self, actor, mark, frame):
-        self.aos[actor] = mark 
+    def zero_aos(self, actor):
+        self.aos[actor].append(0)
+    
+    def mark_aos(self, actor, frame_index):
+        self.aos[actor][frame_index] = 1
 
-    def get_actors(self):
-        return self.actors
+    def get_aos(self):
+        return self.aos
 
     def make_dataframe(self):
         self.df = pd.DataFrame(self.aos)

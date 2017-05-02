@@ -15,6 +15,7 @@ ovr_st = time.time()
 
 
 
+
 ###### REAL CODE HERE
 print("Training classifier")
 training_images = fr.image_to_array(training_dir, 0)
@@ -41,7 +42,7 @@ for actor, aos in recog.khaos.aos.items():
     print(aos)
 
 recog.khaos.make_dataframe()
-recog.khaos.save_to_csv("basterds1.csv")
+recog.khaos.save_to_csv("basterds1_0.5tolerance.csv")
 print("csv file created!")
 
 """
@@ -61,7 +62,7 @@ for actor, aos in recog.khaos.aos.items():
     print(aos)
 
 recog.khaos.make_dataframe()
-recog.khaos.save_to_csv("test2")
+recog.khaos.save_to_csv("test")
 print("csv file created!")
 
 """
