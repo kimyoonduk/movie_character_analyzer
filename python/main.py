@@ -2,18 +2,18 @@ import file_reader
 import recognizer
 import time
 
-video = "basterds_pub.mp4"
-dir_path = "./basterds1/"
-training_dir = "./training_images/"
+#video = "basterds_pub.mp4"
+video = "/Users/ydkim/Prog/594_p2/python/crazy.mp4"
+dir_path = "./crazy/"
+training_dir = "./crazy_train/"
 
 fr = file_reader.FileReader()
 recog = recognizer.Recognizer()
 
 ovr_st = time.time()
 # create image frames from video
-### fr.video_to_frames(video, dir_path)
 
-
+#fr.video_to_frames(video, dir_path)
 
 
 ###### REAL CODE HERE
@@ -39,11 +39,12 @@ for actor, aos in recog.khaos.aos.items():
     print(actor) 
     print("---------")
     print(len(aos))
-    print(aos)
+#    print(aos)
 
 recog.khaos.make_dataframe()
-recog.khaos.save_to_csv("basterds1_0.5tolerance.csv")
+recog.khaos.save_to_csv("crazy.csv")
 print("csv file created!")
+
 
 """
 #### TEST CODE BELOW

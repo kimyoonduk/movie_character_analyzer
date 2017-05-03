@@ -20,10 +20,12 @@ class FileReader:
         while vidcap.isOpened():
             success, image = vidcap.read()
             if success:
-                if(count % 10 == 0):
+                if(count % 12 == 0):
                     global image_list
                     image_list.append(image)
                     cv2.imwrite(os.path.join(path_output_dir, '%d.png') % count, image)
+                if(count % 12000 == 0):
+                    print("frame no: " + count)
                 count += 1
             else:
                 break
@@ -47,6 +49,7 @@ class FileReader:
                 image_arr = face_recognition.load_image_file(img_path)
                 if mode == 0:
                     actor_name = img.split(".")[0]
+                    print("converting " + actor_name)
                     image_map[actor_name] = image_arr 
                 else: 
                     frame = img.split(".")[0]
@@ -72,6 +75,7 @@ class FileReader:
            actor_name = img.split(".")[0]
            face = face_recognition.load_image_file(img_path)
            encoding = face_recognition.face_encodings(face)
+           print("training " + actor_name)
            encoding_map[actor_name] = encoding
        return encoding_map 
 

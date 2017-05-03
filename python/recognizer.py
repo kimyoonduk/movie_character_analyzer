@@ -44,9 +44,9 @@ class Recognizer:
                     ## can test with different tolerance 
                     # default is 0.6
                     results = face_recognition.compare_faces([encoding], face, tolerance=0.6)
-                    print(actor)
-                    print("results len: " + str(len(results)))
-                    print(results)
+#                    print(actor)
+#                    print("results len: " + str(len(results)))
+#                    print(results)
                     if True in results:
                         ## printing results says false but still enters here
                         print("result was true! found: " + actor)
