@@ -7,7 +7,6 @@ global image_list
 class FileReader:
 
     def __init__(self):
-        self.movie_face_locations = []
         global image_list 
         image_list = []
 
@@ -43,6 +42,8 @@ class FileReader:
         image_map = { }
         for img in sorted(sorted(os.listdir(dir_path)), key=len):
             img_path = dir_path + img
+            if (".DS_Store" in img_path):
+                continue
             if (os.path.isfile(img_path)):
                 # store map of filename : image tuple
                 # OR actor : image
@@ -55,8 +56,5 @@ class FileReader:
                     frame = img.split(".")[0]
                     image_map[frame] = image_arr
         return image_map
-
-
-
 
 
