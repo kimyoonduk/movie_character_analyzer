@@ -43,6 +43,8 @@ class FileReader:
         image_map = { }
         for img in sorted(sorted(os.listdir(dir_path)), key=len):
             img_path = dir_path + img
+            if (".DS_Store" in img_path):
+                continue
             if (os.path.isfile(img_path)):
                 # store map of filename : image tuple
                 # OR actor : image
@@ -60,6 +62,8 @@ class FileReader:
         # TODO os.listdir accesses files in random order ***Solved*** 
         for img in sorted(sorted(os.listdir(dir_path)), key=len):
             img_path = dir_path + img
+            if (".DS_Store" in img_path):
+                continue
             if (os.path.isfile(img_path)):
                 image = face_recognition.load_image_file(img_path)
                 frame_face_locations = face_recognition.face_locations(image)

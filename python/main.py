@@ -4,8 +4,8 @@ import time
 
 #video = "basterds_pub.mp4"
 video = "/Users/ydkim/Prog/594_p2/python/crazy.mp4"
-dir_path = "./crazy/"
-training_dir = "./crazy_train/"
+dir_path = "./starwars0/"
+training_dir = "./starwars_train/"
 
 fr = file_reader.FileReader()
 recog = recognizer.Recognizer()
@@ -42,7 +42,7 @@ for actor, aos in recog.khaos.aos.items():
 #    print(aos)
 
 recog.khaos.make_dataframe()
-recog.khaos.save_to_csv("crazy.csv")
+recog.khaos.save_to_csv("starwars.csv")
 print("csv file created!")
 
 
