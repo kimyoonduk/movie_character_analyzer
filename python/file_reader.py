@@ -56,27 +56,7 @@ class FileReader:
                     image_map[frame] = image_arr
         return image_map
 
-    def frame_to_face_locations(self, dir_path):
-        # TODO os.listdir accesses files in random order ***Solved*** 
-        for img in sorted(sorted(os.listdir(dir_path)), key=len):
-            img_path = dir_path + img
-            if (os.path.isfile(img_path)):
-                image = face_recognition.load_image_file(img_path)
-                frame_face_locations = face_recognition.face_locations(image)
-                # add the face location to the list 
-                self.movie_face_locations.append(frame_face_locations)
-        return self.movie_face_locations
 
 
-    def train(self, training_dir):
-       encoding_map = { }
-       for img in os.listdir(training_dir):
-           img_path = training_dir + img
-           actor_name = img.split(".")[0]
-           face = face_recognition.load_image_file(img_path)
-           encoding = face_recognition.face_encodings(face)
-           print("training " + actor_name)
-           encoding_map[actor_name] = encoding
-       return encoding_map 
 
 
