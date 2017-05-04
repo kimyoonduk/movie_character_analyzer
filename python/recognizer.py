@@ -8,7 +8,6 @@ class Recognizer:
 
     def __init__(self):
         self.known_face_encodings = { } # should become the trained face encodings
-        self.movie_face_locations = []
         self.khaos = khaos.Khaos()           
 
     def train_classifier(self, images):
@@ -24,7 +23,6 @@ class Recognizer:
 
 
     def find_and_recognize(self, images):
-        actor_map = { } # maps frame : list of actors 
         frame_index = 0
         for frame in sorted(images, key=int):
             print()
