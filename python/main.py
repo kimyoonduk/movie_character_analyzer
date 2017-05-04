@@ -1,11 +1,18 @@
 import file_reader
 import recognizer
 import time
+import khaos
+import visualization_factory 
 
 #video = "basterds_pub.mp4"
-video = "/Users/ydkim/Prog/594_p2/python/crazy.mp4"
-dir_path = "./starwars0/"
-training_dir = "./starwars_train/"
+# video = "/Users/ydkim/Prog/594_p2/python/crazy.mp4"
+# dir_path = "./starwars0/"
+# training_dir = "./starwars_train/"
+
+dir_path = "./basterds1/"
+training_dir = "./training_images/"
+
+
 
 fr = file_reader.FileReader()
 recog = recognizer.Recognizer()
@@ -14,6 +21,8 @@ ovr_st = time.time()
 # create image frames from video
 
 #fr.video_to_frames(video, dir_path)
+
+
 
 
 ###### REAL CODE HERE
@@ -42,9 +51,22 @@ for actor, aos in recog.khaos.aos.items():
 #    print(aos)
 
 recog.khaos.make_dataframe()
-recog.khaos.save_to_csv("starwars.csv")
+recog.khaos.save_to_csv("basterds1.csv")
 print("csv file created!")
 
+"""
+## test factory starting from here
+kh = khaos.Khaos()
+kh.get_df_from_csv("basterds1.csv")
+#vf = VisualizationFactory()
+"""
+
+vf = visualization_factory.VisualizationFactory()
+vf.create_visualization(1, kh, "basterds1")
+
+#vf = visualization_factory.VisualizationFactory()
+#vf.create_visualization(1, recog.khaos, "basterds1")
+print("Created line graph!")
 
 """
 #### TEST CODE BELOW
