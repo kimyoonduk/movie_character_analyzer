@@ -29,8 +29,7 @@ class Recognizer:
         for frame in sorted(images, key=int):
             print()
             print("FRAME: " + frame)
-            # frame_face_locations = face_recognition.face_locations(img)
-            # unknown_faces = face_recognition.face_encodings(img, frame_face_locations)
+
             unknown_faces = face_recognition.face_encodings(images[frame])
             # TODO: issue does not recognize side faces well
             print("unknown_faces len: " + str(len(unknown_faces)))
