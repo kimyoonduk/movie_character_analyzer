@@ -1,11 +1,10 @@
 
 import os
 import pandas as pd
-
 class Khaos:
     
     def __init__(self):
-        self.aos = { }
+        self.aos = { } # maps : 
 
     # placeholder
     def calculate_khaos(self):
@@ -31,7 +30,8 @@ class Khaos:
             print("There is no dataframe. Create one first.")
     
     def get_df_from_csv(self, filepath):
-        temp_df = pd.read_csv(filepath)
+        dir_name = "./csv_files"
+        temp_df = pd.read_csv(os.path.join(dir_name,filepath))
         del temp_df['Unnamed: 0']
         self.df = temp_df
 

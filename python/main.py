@@ -24,7 +24,6 @@ ovr_st = time.time()
 
 
 
-
 ###### REAL CODE HERE
 print("Training classifier")
 training_images = fr.image_to_array(training_dir, 0)
@@ -55,18 +54,17 @@ recog.khaos.save_to_csv("basterds1.csv")
 print("csv file created!")
 
 """
-## test factory starting from here
+## test factory starting at csv starting from here
 kh = khaos.Khaos()
 kh.get_df_from_csv("basterds1.csv")
-#vf = VisualizationFactory()
 """
 
 vf = visualization_factory.VisualizationFactory()
-vf.create_visualization(1, kh, "basterds1")
-
-#vf = visualization_factory.VisualizationFactory()
-#vf.create_visualization(1, recog.khaos, "basterds1")
+#vf.create_visualization(1, kh, "basterds1_test2")
+vf.create_visualization(1, recog.khaos, "basterds1")
 print("Created line graph!")
+
+
 
 """
 #### TEST CODE BELOW
