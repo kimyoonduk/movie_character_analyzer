@@ -13,10 +13,10 @@
 - The python code to be run is stored inside of the "./python" folder 
 
 ## Main Idea
-- Takes a video file and extracts still-frame-images of the video
+- Takes a video file and extracts still-frame-images of the video using opencv 
 - Converts the image files to a list of numpy arrays representing each image
 - Using training images, the classifier will provide an encoding for our training images that can be used to detect and recognize faces.
-	- the facial recognition classifer uses dlib
+	- the facial recognition classifer uses dlib machine learning library
 - Using the classfier, run each numpy array represented image from a movie and store the appearance of each actor for each frame. 
 	- stored as a dictionary that maps each frame index : dictionary of actors mapped to a list of hits/misses(1/0) 
 	- output looks like this:
@@ -28,8 +28,8 @@
 	2	 | 1	| 1	   | 1
 	3    | 1	| 1    | 1
 
-- Convert the stored data into a dataframe for visualization processing.
-- Use the dataframe to create a line plot and a bar plot 
+- Convert the stored data into a pandas dataframe for visualization processing.
+- Use seaborn and matplotlib to create a line plot and a bar plot 
 
 ## How face detection and recognition works
 - How face detection works:
@@ -46,15 +46,15 @@
 		- train a Deep Convolutional Neural network to recognize and measure 128 measurements on each face
 			1. Use 3 images at a time for training, 2 of the same known person and 1 of a different person
 			3. The neural network will do machine-learning things to make sure the measurements it generates for image 1 and image 2 of the same person are closer, while the measurements between the known person and the different person are slightly further apart
-		- Now the trained neural network can produce almost identical numbers for the 128 measurement when looking at different pictures of the same person
-		- By comparing the similarity of two encodings, we can determine if we know the person who appears in the image
+		- now the trained neural network can produce almost identical numbers for the 128 measurement when looking at different pictures of the same person
+		- by comparing the similarity of two encodings, we can determine if we know the person who appears in the image
 
-# run our demo! (demo.py) 
-- run this to get shortened and preconfigured version of our product from start to finish
-- run in command line with no extra arguments
-- it defaults to just using the still-frames. If you want to perform the video extraction as well uncomment line 19
+# Run our demo! (demo.py) 
+- Run this to get shortened and preconfigured version of our product from start to finish
+- Run in command line with no extra arguments
+- It defaults to just using the still-frames. If you want to perform the video extraction as well uncomment line 19
 	- video extraction can take a while
-- these are the dependencies:
+- These are the dependencies:
 	- Python3
 	- OpenCV
 	- Dlib
@@ -130,7 +130,7 @@
 - Creates a bar plot visualization of the data
 
 ## A Brief Analysis 
-- 
+- Using the pandas library, we can obtain statistical measures for character appearances. It is possible to compare means, standard deviation, and correlations of each character.
 
 #### Work Breakdown
 - Combo: Research, design, idea formulation, and testing
