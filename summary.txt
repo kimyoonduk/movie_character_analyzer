@@ -1,3 +1,6 @@
+Reading this on github makes it look nicer and easier to read :)
+This readme along with the jupyter notebook files linked below serves as the manual 
+
 # Kim Huang Appearance on Screen Visualizer (khaos visualizer)
 - [main github](https://github.com/cit-upenn/594-s17-project-kimhuangaos)
 - Use the following links for some cool Jupyter Notebook views! 
