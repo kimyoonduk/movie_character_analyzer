@@ -1,11 +1,19 @@
-# 594-s17-project-kimhuangaos
-Kim Huang Appearance on Screen Visualizer (khaos visualizer)
-https://github.com/cit-upenn/594-s17-project-kimhuangaos
+# Kim Huang Appearance on Screen Visualizer (khaos visualizer)
+- [main github](https://github.com/cit-upenn/594-s17-project-kimhuangaos)
+- [jupyter notebook name2](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/visualizer.ipynb)
+- [jupyter notebook name2](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/line_visualization.ipynb)
+- [jupyter notebook name](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/bar_visualization.ipynb)
 
-A new way of visualizing movies 
+### A new way of visualizing movies 
+
+## Output/Folder Organization
+- All of our visualizations are also stored in the "./our_output" folder
+	- Outputs are from the movies "Crazy Stupid Love," the first third of "Star Wars: A New Hope," and a scene for "Inglorious Basterds"
+- The python code to be run is stored inside of the "./python" folder 
+
 ## Main Idea
-- takes a video file and extracts still-frame-images of the video
-- converts the image files to a list of numpy arrays representing each image
+- Takes a video file and extracts still-frame-images of the video
+- Converts the image files to a list of numpy arrays representing each image
 - Using training images, the classifier will provide an encoding for our training images that can be used to detect and recognize faces.
 	- the facial recognition classifer uses dlib
 - Using the classfier, run each numpy array represented image from a movie and store the appearance of each actor for each frame. 
@@ -19,17 +27,17 @@ A new way of visualizing movies
 	2	 | 1	| 1	   | 1
 	3    | 1	| 1    | 1
 
-- convert the stored data into a dataframe for visualization processing.
+- Convert the stored data into a dataframe for visualization processing.
 - Use the dataframe to create a line plot and a bar plot 
 
 ## How face detection and recognition works
-- how face detection works:
+- How face detection works:
 	1. Histogram of Gradients
 		- convert image to black and white
 		- look at each pixel or a small grouping of pixels, say 16x16, to determine the direction of light to dark across an image.
-		- This allows for all images to be represented the same way, regardless if it is a dark or light picture 
+		- this allows for all images to be represented the same way, regardless if it is a dark or light picture 
 		- Now we can look look at an unknown picture and determine if its HOG pattern shares any similarity from HOG patterns extracted from training images
-- how face recognition works:
+- How face recognition works:
 	1. Face Landmark Estimation
 		- deals with faces that aren't directly centered by adjusting the picture to line up eyes and lips in the same place every time
 		- use landmarks, or 68 specific points on a face that a machine learning algorithm can be trained to recognize on any face 
@@ -44,6 +52,7 @@ A new way of visualizing movies
 - run this to get shortened and preconfigured version of our product from start to finish
 - run in command line with no extra arguments
 - it defaults to just using the still-frames. If you want to perform the video extraction as well uncomment line 19
+	- video extraction can take a while
 - these are the dependencies:
 	- Python3
 	- OpenCV
@@ -60,7 +69,7 @@ A new way of visualizing movies
 - A few false postitive would occur as well if two actors were similar in facial structure. We tried adjust for different thresholds of similarity and found that 0.6 gave the best results. 
 
 
-## FileReader
+## File_Reader
 - video_to_frames(self, video, path_output_dir)
 	- use openCV to extract video frames and store as images for further processing
 		- reads every 12 frames because video is often 24fps. Gives us a captured frame every 0.5s
@@ -107,16 +116,16 @@ A new way of visualizing movies
 - save_to_csv(self, filepath)
 	- saves the khaos data to a csv file so we can perform visualization from this step if desired
 
-## VisualizationFactory
+## Visualization_Factory
 - create_visualizer(self, khaos, mode, filename)
 	- a factory method
 	- define the type of visualization we want to create and use attributes of khaos to create the desired graph
 	- Can create a line graph visualization, or an animation visualization
 
-## Visualizer_line
+## Visualizer_Line
 - creates the line graph visualization of the data
 
-## Visualizer_bar
+## Visualizer_Bar
 - creates a bar plot visualization of the data
 
 
