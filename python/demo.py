@@ -39,8 +39,6 @@ recog.khaos.save_to_csv("TA_demo.csv")
 print("csv file created and stored in ./csv_files/demo.csv")
 
 
-
-
 vf = visualization_factory.Visualization_Factory()
 vf.create_visualization(1, recog.khaos, "TA_demo_line")
 print("Created line graph!")
