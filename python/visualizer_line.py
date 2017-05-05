@@ -67,5 +67,3 @@ if __name__ == "__main__":
     new_vis = Visualizer_Line(new_df)
 
     new_vis.save_visualization(100, "test_output.png", 30, 10, 100)
-
-

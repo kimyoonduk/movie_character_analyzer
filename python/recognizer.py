@@ -6,14 +6,19 @@ import khaos
 
 class Recognizer: 
 
+    '''
+    constructor
+    creates a dictionary of known face encodings and an empty khaos object
+    '''
     def __init__(self):
         self.known_face_encodings = { } # should become the trained face encodings
         self.khaos = khaos.Khaos()           
 
+    '''
+    trains classifier with given images of actors and saves them as dictionary of name, image pairs
+    images = input images 
+    '''
     def train_classifier(self, images):
-        # training steps 
-        # TODO: find out how training actually works
-        # TODO: is one training image enough?
        for actor, img in images.items():
            encoding = face_recognition.face_encodings(img)[0]
            self.known_face_encodings[actor] = encoding
@@ -22,6 +27,11 @@ class Recognizer:
        return self.known_face_encodings
 
 
+    '''
+    runs through the image file to find and recognize faces if there is any
+    compares each faces with known face encodings to match with actors
+    images = input images
+    '''
     def find_and_recognize(self, images):
         frame_index = 0
         for frame in sorted(images, key=int):
@@ -29,7 +39,6 @@ class Recognizer:
             print("FRAME: " + frame)
 
             unknown_faces = face_recognition.face_encodings(images[frame])
-            # TODO: issue does not recognize side faces well
             print("unknown_faces len: " + str(len(unknown_faces)))
 
             for actor, aos in self.khaos.aos.items():
@@ -45,7 +54,6 @@ class Recognizer:
 #                    print("results len: " + str(len(results)))
 #                    print(results)
                     if True in results:
-                        ## printing results says false but still enters here
                         print("result was true! found: " + actor)
                         # self.khaos.aos[actor][counter] = 1
                         self.khaos.mark_aos(actor,frame_index)
