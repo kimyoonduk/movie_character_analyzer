@@ -1,8 +1,9 @@
 # Kim Huang Appearance on Screen Visualizer (khaos visualizer)
 - [main github](https://github.com/cit-upenn/594-s17-project-kimhuangaos)
-- [jupyter notebook name2](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/visualizer.ipynb)
-- [jupyter notebook name2](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/line_visualization.ipynb)
-- [jupyter notebook name](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/bar_visualization.ipynb)
+- Use the following links for some cool Jupyter Notebook views! 
+	- [Crazy Stupid Love](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/line_visualization.ipynb)
+	- [Basterds Scene](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/visualizer.ipynb)
+	- [Star Wars](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/bar_visualization.ipynb)
 
 ### A new way of visualizing movies 
 
@@ -65,9 +66,8 @@
 
 ## Issues we dealt with
 - During testing, we discovered that some frames did not recognize all of the faces. 
-	- after some research and testing we found that the library we used, dlib, is not very good at dealing with sidefaces. In some frames it would not recognize that a face existed if it was from too much of a side angle
+	- After some research and testing we found that dlib is not very good at dealing with sidefaces. In some frames faces would not be recognized if it was too much of a side angle
 - A few false postitive would occur as well if two actors were similar in facial structure. We tried adjust for different thresholds of similarity and found that 0.6 gave the best results. 
-
 
 ## File_Reader
 - video_to_frames(self, video, path_output_dir)
@@ -106,6 +106,7 @@
 	1	 | 0    | 0    | 1
 	2	 | 1	| 1	   | 1
 	3    | 1	| 1    | 1
+	
 - zero_aos(self, actor)
 	- initializes all values to 0
 	- this way we only have to change values to 1 on a hit
@@ -123,11 +124,13 @@
 	- Can create a line graph visualization, or an animation visualization
 
 ## Visualizer_Line
-- creates the line graph visualization of the data
+- Creates the line graph visualization of the data
 
 ## Visualizer_Bar
-- creates a bar plot visualization of the data
+- Creates a bar plot visualization of the data
 
+## A Brief Analysis 
+- 
 
 #### Work Breakdown
 - Combo: Research, design, idea formulation, and testing
