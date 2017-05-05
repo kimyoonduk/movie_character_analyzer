@@ -7,7 +7,6 @@ class Visualizer_Bar:
 
     def __init__(self, df):
         self.df = df
-        self.appear_list = []
         self.num_characters = len(self.df.columns)
         sns.set_palette("Set2", self.num_characters)
 
