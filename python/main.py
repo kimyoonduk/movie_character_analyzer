@@ -14,7 +14,7 @@ training_dir = "./training_images/"
 
 
 
-fr = file_reader.FileReader()
+fr = file_reader.File_Reader()
 recog = recognizer.Recognizer()
 
 ovr_st = time.time()
@@ -59,7 +59,7 @@ kh = khaos.Khaos()
 kh.get_df_from_csv("basterds1.csv")
 """
 
-vf = visualization_factory.VisualizationFactory()
+vf = visualization_factory.Visualization_Factory()
 #vf.create_visualization(1, kh, "basterds1_test2")
 vf.create_visualization(1, recog.khaos, "basterds1")
 print("Created line graph!")

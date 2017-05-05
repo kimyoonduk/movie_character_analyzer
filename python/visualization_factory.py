@@ -1,7 +1,7 @@
 import os
 import visualizer_line
 
-class VisualizationFactory:
+class Visualization_Factory:
 
     def create_visualization(self, mode, khaos, filename):
         dir_name = "./graphs" 

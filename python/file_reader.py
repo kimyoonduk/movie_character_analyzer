@@ -4,7 +4,7 @@ import cv2
 
 global image_list
 
-class FileReader:
+class File_Reader:
 
     def __init__(self):
         global image_list 
