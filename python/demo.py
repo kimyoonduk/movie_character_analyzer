@@ -5,7 +5,7 @@ import khaos
 import visualization_factory 
 
 ## should replace with the smaller scene
-video = "basterds_pub.mp4"
+video = "demo.mp4"
 
 dir_path = "./basterds1/"
 training_dir = "./training_images/"
@@ -14,8 +14,6 @@ training_dir = "./training_images/"
 
 fr = file_reader.File_Reader()
 recog = recognizer.Recognizer()
-
-# create image frames from video
 
 #### USE THIS IF YOU WANT TO CREATE EXTRACT THE IMAGE FRAMES FROM THE VIDEO MANUALLY
 #fr.video_to_frames(video, dir_path) 
@@ -54,8 +52,12 @@ print("csv file created and stored in ./csv_files/demo.csv")
 
 
 vf = visualization_factory.Visualization_Factory()
-vf.create_visualization(1, recog.khaos, "basterds1")
+vf.create_visualization(1, recog.khaos, "demo_line")
 print("Created line graph!")
 print("stored in ./graphs/demo.png")
+
+vf.create_visualization(2, recog.khaos, "demo_bar")
+print("Created bar plot!")
+print("stored in ./graph/")
 
 

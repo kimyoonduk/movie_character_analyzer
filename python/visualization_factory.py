@@ -8,7 +8,7 @@ class Visualization_Factory:
         if mode == 1:
             visualizer = visualizer_line.Visualizer_Line(khaos.get_dataframe())
         elif mode == 2:
-            visualizer = visualizer_line.Visualizer_animation()
+            visualizer = visualizer_bar.Visualizer_Bar(khaos.get_dataframe())
         else:
             print("not a valid mode")
         visualizer.save_visualization(120, os.path.join(dir_name, filename), 30, 10, 100)
