@@ -6,6 +6,11 @@ import seaborn as sns
 
 class Visualizer_Line:
 
+    '''
+    constructor
+    initializes the dataframe, appearance list and the number of characters
+    sets the colors to look pretty
+    '''
     def __init__(self, df):
         self.df = df
         self.appear_list = []
@@ -13,6 +18,14 @@ class Visualizer_Line:
         sns.set_palette("Set2", self.num_characters)
 
 
+    '''
+    save the results of a visualization to a png file
+    window = the number of frames to track for appearances
+    savepath = path to save to file
+    width = image width in inches
+    height = image height in inches
+    dpi_val = dpi value
+    '''
     def save_visualization(self, window, savepath, width, height, dpi_val):
         self.appear_list = []
         self.create_count_column(window)
@@ -32,6 +45,9 @@ class Visualizer_Line:
         fig.savefig(savepath, dpi=dpi_val)
 
 
+    '''
+    creates a set of columns that track appearances of each character in the last n frames
+    '''
     def create_count_column(self, window):
         global appear_list
         for column in self.df:
@@ -54,7 +70,6 @@ class Visualizer_Line:
 
     '''
     helper method to remove all columns from the dataframe except the original information
-     
     '''
     def delete_new_columns(self, num_characters):
         for i in range (len(self.df.columns) - num_characters):
