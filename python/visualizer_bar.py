@@ -11,6 +11,13 @@ class Visualizer_Bar:
         sns.set_palette("Set2", self.num_characters)
 
 
+    '''
+    save the results of a visualization to a png file
+    savepath = path to save to file
+    width = image width in inches
+    height = image height in inches
+    dpi_val = dpi value
+    '''
     def save_visualization(self, savepath, width, height, dpi_val):
         max_appearance = self.get_max_appear()
 
@@ -31,6 +38,9 @@ class Visualizer_Bar:
 
         fig.savefig(savepath, dpi=dpi_val)
 
+    '''
+    helper method to get the maximum value of the y-axis
+    '''
     def get_max_appear(self):
         appear_sum = []
         for column in self.df:
@@ -39,7 +49,6 @@ class Visualizer_Bar:
 
     '''
     helper method to remove all columns from the dataframe except the original information
-     
     '''
     def delete_new_columns(self, num_characters):
         for i in range (len(self.df.columns) - num_characters):
