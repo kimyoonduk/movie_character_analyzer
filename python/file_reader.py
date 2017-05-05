@@ -2,13 +2,7 @@ import os
 import face_recognition
 import cv2
 
-global image_list
-
 class File_Reader:
-
-    def __init__(self):
-        global image_list 
-        image_list = []
 
     # extract video to images stored in a dir
     def video_to_frames(self, video, path_output_dir):
@@ -20,8 +14,6 @@ class File_Reader:
             success, image = vidcap.read()
             if success:
                 if(count % 12 == 0):
-                    global image_list
-                    image_list.append(image)
                     cv2.imwrite(os.path.join(path_output_dir, '%d.png') % count, image)
                 if(count % 12000 == 0):
                     print("frame no: " + count)
@@ -32,12 +24,10 @@ class File_Reader:
         vidcap.release()
         return path_output_dir 
 
-    def get_image_list(self):
-        global image_list
-        return image_list
-
-    """  mode 0 = training
-         mode 1 = analysis """
+    
+    # takes a directory of images and creates:
+    # mode 0(training): a dictionary mapping actor : numpy array representations of each image 
+    # mode 1(movie images): a dictionary mapping frame number : numpy array representation of each image
     def image_to_array(self, dir_path, mode):
         image_map = { }
         for img in sorted(sorted(os.listdir(dir_path)), key=len):
