@@ -12,7 +12,7 @@ training_dir = "./training_images/"
 
 
 
-fr = file_reader.FileReader()
+fr = file_reader.File_Reader()
 recog = recognizer.Recognizer()
 
 # create image frames from video
@@ -53,7 +53,7 @@ print("csv file created and stored in ./csv_files/demo.csv")
 
 
 
-vf = visualization_factory.VisualizationFactory()
+vf = visualization_factory.Visualization_Factory()
 vf.create_visualization(1, recog.khaos, "basterds1")
 print("Created line graph!")
 print("stored in ./graphs/demo.png")
