@@ -61,8 +61,11 @@ kh.get_df_from_csv("basterds1.csv")
 
 vf = visualization_factory.Visualization_Factory()
 #vf.create_visualization(1, kh, "basterds1_test2")
-vf.create_visualization(1, recog.khaos, "basterds1")
+vf.create_visualization(1, recog.khaos, "basterds1_line")
 print("Created line graph!")
+vf.create_visualization(2, recog.khaos, "basterds1_bar")
+print("Created bar plot!")
+print("look for visualizations inside of ./graphs/")
 
 
 

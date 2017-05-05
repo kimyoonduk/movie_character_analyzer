@@ -1,12 +1,9 @@
 import file_reader
 import recognizer
-import time
 import khaos
 import visualization_factory 
 
-## should replace with the smaller scene
 video = "demo.mp4"
-
 dir_path = "./basterds1/"
 training_dir = "./training_images/"
 
@@ -20,23 +17,16 @@ recog = recognizer.Recognizer()
 
 
 
-
-###### REAL CODE HERE 
 print("Training classifier")
 training_images = fr.image_to_array(training_dir, 0)
 recog.train_classifier(training_images)
 print("TRAINED FACE ENCODINGS!")
-print("training time: " + str(time.time() - ovr_st))
 
-con_time = time.time()
 print("converting movie images")
 movie_images = fr.image_to_array(dir_path, 1)
-print("image conversion time: " + str(time.time() - con_time))
 print("Attempting to find and recognize!")
-recog_time = time.time()
 recog.find_and_recognize(movie_images)
-print("Done recognizing: " + str(time.time() - recog_time))
-print("total time: " + str(time.time() - ovr_st))
+print("Done recognizing: " )
 
 for actor, aos in recog.khaos.aos.items():
     print(actor) 
@@ -45,19 +35,19 @@ for actor, aos in recog.khaos.aos.items():
     print(aos)
 
 recog.khaos.make_dataframe() 
-recog.khaos.save_to_csv("demo.csv")
+recog.khaos.save_to_csv("TA_demo.csv")
 print("csv file created and stored in ./csv_files/demo.csv")
 
 
 
 
 vf = visualization_factory.Visualization_Factory()
-vf.create_visualization(1, recog.khaos, "demo_line")
+vf.create_visualization(1, recog.khaos, "TA_demo_line")
 print("Created line graph!")
-print("stored in ./graphs/demo.png")
+print("stored in ./graphs/TA_demo_line.png")
 
-vf.create_visualization(2, recog.khaos, "demo_bar")
+vf.create_visualization(2, recog.khaos, "TA_demo_bar")
 print("Created bar plot!")
-print("stored in ./graph/")
+print("stored in ./graph/TA_demo_bar.png")
 
 
