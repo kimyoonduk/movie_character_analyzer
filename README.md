@@ -1,9 +1,10 @@
 # Kim Huang Appearance on Screen Visualizer (khaos visualizer)
 - [main github](https://github.com/cit-upenn/594-s17-project-kimhuangaos)
 - Use the following links for some cool Jupyter Notebook views! 
-	- [Crazy Stupid Love](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/line_visualization.ipynb)
+	- [Crazy Stupid Love - Running Average Line Plot](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/line_visualization.ipynb)
+	- [Crazy Stupid Love - Bar Chart](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/bar_visualization.ipynb)
 	- [Basterds Scene](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/visualizer.ipynb)
-	- [Star Wars](https://github.com/cit-upenn/594-s17-project-kimhuangaos/blob/master/notebook/bar_visualization.ipynb)
+	- [Star Wars](https://github.com/kimyoonduk/594-s17-project-kimhuangaos/blob/master/our_output/starwars_line.png)
 
 ### A new way of visualizing movies 
 
