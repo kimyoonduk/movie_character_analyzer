@@ -1,4 +1,4 @@
-# Kim Huang Appearance on Screen Visualizer (khaos visualizer)
+# Kim Huang Appearance on Screen Analyzer (khaos analyzer)
 - This is a mirror of a private repository: [main repo](https://github.com/cit-upenn/594-s17-project-kimhuangaos)
 - Use the following links for some cool Jupyter Notebook views! 
 	- [Crazy Stupid Love - Running Average Line Plot](https://github.com/kimyoonduk/movie_character_analyzer/blob/master/notebook/line_visualization.ipynb)
